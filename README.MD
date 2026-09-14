@@ -1,6 +1,5 @@
-# EcoSnap AI - Banana Hacks 2026
-
-**Turn Trash into Treasure using Image AI.**
+# EcoSnap-AI-Computer-Vision-and-Generative-AI
+> **Turn Trash into Treasure using Image AI.**
 
 EcoSnap AI is a full-stack web application built for the **Banana Hacks 2026** Image AI Hackathon. It leverages Computer Vision and Generative AI to combat household waste by instantly transforming images of discarded materials into actionable, high-quality upcycled DIY projects.
 
