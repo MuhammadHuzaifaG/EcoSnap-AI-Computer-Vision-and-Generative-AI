@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSnap AI - Banana Hacks 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><i class="fa-solid fa-leaf"></i> EcoSnap AI</div>
+            <ul class="nav-links">
+                <li><a href="#hero">App</a></li>
+                <li><a href="#how-it-works">How to Use</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main App Section (Hero) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content reveal">
+            <h1 class="gradient-text">Turn Trash into Treasure</h1>
+            <p class="subtitle">Upload a photo of discarded material, and let our Image AI synthesize a beautiful, actionable upcycling blueprint in seconds.</p>
+            
+            <!-- Interactive Upload Zone -->
+            <div class="app-container glass-panel">
+                <div id="uploadSection" class="upload-section">
+                    <div id="dropZone" class="drop-zone animated-border">
+                        <i class="fa-solid fa-cloud-arrow-up drop-icon"></i>
+                        <h2>Drag & Drop your image here</h2>
+                        <p>Supports PNG, JPG, WEBP (Max 10MB)</p>
+                        <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" hidden>
+                        <button id="browseBtn" class="primary-btn glow-effect">Browse Files</button>
+                    </div>
+                    <div id="errorMsg" class="error-message hidden"></div>
+                </div>
+
+                <!-- Animated Loading State -->
+                <div id="loadingState" class="loading-state hidden">
+                    <div class="loader-ring"></div>
+                    <h3 id="loadingText">Vision AI is classifying material...</h3>
+                    <p class="fade-text">Generating synthetic blueprint...</p>
+                </div>
+
+                <!-- Dynamic Results Area -->
+                <div id="resultSection" class="result-section hidden">
+                    <div class="result-header">
+                        <h2 id="upcycleTitle">Upcycled Concept</h2>
+                        <div class="badges">
+                            <span class="badge"><i class="fa-solid fa-tag"></i> <span id="detectedMaterial">--</span></span>
+                            <span class="badge"><i class="fa-regular fa-clock"></i> <span id="estimatedTime">--</span></span>
+                            <span class="badge"><i class="fa-solid fa-hammer"></i> <span id="difficultyLevel">--</span></span>
+                        </div>
+                    </div>
+
+                    <div class="visual-comparison">
+                        <div class="image-card">
+                            <div class="card-label">Original</div>
+                            <img id="originalPreview" src="" alt="Original Upload">
+                        </div>
+                        <div class="image-card ai-glow">
+                            <div class="card-label">AI Synthesized</div>
+                            <img id="syntheticPreview" src="" alt="AI Generated Concept">
+                        </div>
+                    </div>
+
+                    <div class="instructions-layout">
+                        <div class="tools-panel glass-panel">
+                            <h3><i class="fa-solid fa-toolbox"></i> Tools Required</h3>
+                            <ul id="toolsList"></ul>
+                        </div>
+                        <div class="steps-panel glass-panel">
+                            <h3><i class="fa-solid fa-list-check"></i> DIY Instructions</h3>
+                            <div id="stepsContainer" class="steps-container"></div>
+                        </div>
+                    </div>
+                    
+                    <button id="resetBtn" class="secondary-btn"><i class="fa-solid fa-rotate-left"></i> Process Another Item</button>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Loading State Section -->
+<div id="loadingState" class="hidden text-center py-16">
+    <div class="spinner mb-4"></div>
+    <h3 class="text-xl font-semibold text-white">Vision AI is classifying material...</h3>
+    <p class="text-sm text-gray-400 mt-2">
+        First-time run: Downloading model weights (<code class="text-emerald-400">google/vit-base-patch16-224</code>). Please check your terminal for live progress!
+    </p>
+</div>
+    <!-- How to Use / Prerequisites Section -->
+    <section id="how-it-works" class="info-section alternate-bg">
+        <div class="container reveal">
+            <h2 class="section-title">How to Use & Prerequisites</h2>
+            <div class="steps-grid">
+                <div class="step-box">
+                    <div class="step-icon"><i class="fa-solid fa-camera"></i></div>
+                    <h3>1. Snap a Picture</h3>
+                    <p>Find discarded items like glass bottles, cardboard, or plastic. Ensure the subject is clearly visible in the photo.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>2. AI Processing</h3>
+                    <p>Our backend Vision Transformer classifies the material, while the generative AI synthesizes a high-res concept image.</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3>3. Build It</h3>
+                    <p>Follow the dynamically generated step-by-step DIY instructions and gather the required tools to build your project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="info-section">
+        <div class="container reveal">
+            <h2 class="section-title">Hackathon Features</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-eye feature-icon"></i>
+                    <h3>Computer Vision</h3>
+                    <p>Utilizes advanced image classification to identify materials with high accuracy, correcting mobile EXIF data automatically.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-wand-magic-sparkles feature-icon"></i>
+                    <h3>Generative Synthesis</h3>
+                    <p>Transforms the detected text prompt into a photorealistic, studio-quality image of the final upcycled product.</p>
+                </div>
+                <div class="feature-card glass-panel">
+                    <i class="fa-solid fa-bolt feature-icon"></i>
+                    <h3>Async FastAPI Backend</h3>
+                    <p>Built for speed and scale. Handles multi-part file uploads and API bridging asynchronously without blocking the main thread.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="info-section alternate-bg">
+        <div class="container reveal">
+            <h2 class="section-title">The Tech Stack</h2>
+            <div class="tech-tags">
+                <span class="tech-tag"><i class="fa-brands fa-python"></i> Python 3.12</span>
+                <span class="tech-tag"><i class="fa-solid fa-server"></i> FastAPI</span>
+                <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</span>
+                <span class="tech-tag"><i class="fa-brands fa-js"></i> Vanilla JS</span>
+                <span class="tech-tag">🤗 Hugging Face Transformers</span>
+                <span class="tech-tag"><i class="fa-solid fa-image"></i> Pillow</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built for Banana Hacks 2026 • Image AI Track</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
