@@ -1,12 +1,14 @@
 # EcoSnap-AI-Computer-Vision-and-Generative-AI
 > **Turn Trash into Treasure using Image AI.**
 
-EcoSnap AI is a full-stack web application built for the **Banana Hacks 2026** Image AI Hackathon. It leverages Computer Vision and Generative AI to combat household waste by instantly transforming images of discarded materials into actionable, high-quality upcycled DIY projects.
+EcoSnap AI is a full-stack web application. It leverages Computer Vision and Generative AI to combat household waste by instantly transforming images of discarded materials into actionable, high-quality upcycled DIY projects.
 
 ---
 
 ## The Problem
 Every day, millions of tons of recyclable materials—glass, plastic, cardboard, and textiles—end up in landfills. Often, people discard these items simply because they cannot visualize a second life for them. The gap between "waste" and "utility" is a lack of accessible, personalized inspiration and clear execution steps.
+
+<img src="https://github.com/MuhammadHuzaifaG/EcoSnap-AI-Computer-Vision-and-Generative-AI/blob/main/thumb.PNG" />
 
 ## The Solution
 EcoSnap AI bridges this gap using Image AI. By simply uploading a photo of a piece of trash, the application:
